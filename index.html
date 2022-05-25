@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Test</title>
+    <title>How Was Your Day</title>
     <script type="text/javascript">var submitted = false;</script>
     <script>
         function check() {
@@ -32,7 +32,16 @@
             setTimeout(check, 1);
         }, 100);
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"
+        integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="style.css">
+
     <style>
+        body {
+            background-color: antiquewhite;
+        }
+
         .container {
             display: flex;
             justify-content: center;
@@ -43,8 +52,14 @@
             padding: 5px;
         }
 
+        /* #h1 {
+            color: aqua;
+        } */
+
         input {
             padding: 2px;
+            border-radius: 5px;
+            border: 2px solid rgb(49, 149, 231);
             margin: 5px;
         }
     </style>
@@ -54,20 +69,28 @@
 <body>
     <div class="container">
 
-        <h1>Fill the form</h1>
+        <h1 id="h1">How Was Your Day </h1>
+        <h2 id="h2">Fill your luck details here</h2>
         <form id="form" style="padding: 5px;"
             action="https://script.google.com/macros/s/AKfycbz0v1bUZBreSbqD8t07NQBzgZedT0VTmk5cxmrFd4dAWuDthMXk4xW7LMyLFZP5GeHunA/exec"
             method="post" target="hidden_iframe" onsubmit="submitted=true" class="myform">
             <input type="text" placeholder="Your Name" id="Name" name="Name"><br />
             <input id="email" type="text" placeholder="Email ID" name="Email"><br />
             <input type="text" placeholder="Comment" name="Comment"><br />
-            <label for="points">Your Luck Today</label> <br>
-            <input type="range" id="luck" name="Luck" min="0" max="10"> <br>
+            <label for="points">Your Luck Today </label> <br>
+            <label for="points">😥</label>
+            <input type="range" id="luck" name="Luck" min="0" max="10">
+            <label for="points">😃</label> <br>
             <input id="date" type="text" name="Date" readonly> <br>
             <input type="submit" value="Submit">
 
         </form>
     </div>
+    <script>
+        gsap.from("#h1", { duration: 1, opacity: 0, y: -100 });
+        gsap.from("#h2", { duration: 2, opacity: 0, x: 800 });
+        gsap.from("#form", { duration: 2, opacity: 0, scale: 2 });
+    </script>
     <script>
         var inputF = document.getElementById("date");
         n = new Date();
