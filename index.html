@@ -7,6 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Test</title>
     <script type="text/javascript">var submitted = false;</script>
+    <script>
+        function check() {
+
+
+            // if (document.getElementById("Name").innerHTML !== "") {
+            //     console.log("done")
+            //     document.getElementById("form").action = "https://script.google.com/macros/s/AKfycbz0v1bUZBreSbqD8t07NQBzgZedT0VTmk5cxmrFd4dAWuDthMXk4xW7LMyLFZP5GeHunA/exec"
+            // }
+
+            if (document.getElementById("Name").value === "") {
+                // console.log("no name")
+                document.getElementById("form").action = "/hello/hi"
+            }
+            else if (document.getElementById("email").value === "") {
+                // console.log("no email")
+                document.getElementById("form").action = errorPage
+            }
+            else {
+                document.getElementById("form").action = "https://script.google.com/macros/s/AKfycbz0v1bUZBreSbqD8t07NQBzgZedT0VTmk5cxmrFd4dAWuDthMXk4xW7LMyLFZP5GeHunA/exec"
+            }
+        }
+        setInterval(() => {
+            setTimeout(check, 1);
+        }, 100);
+    </script>
     <style>
         .container {
             display: flex;
@@ -52,29 +77,8 @@
         today = d + "/" + m + "/" + y;
         console.log(today);
         inputF.value = today;
-        function check() {
 
 
-            // if (document.getElementById("Name").innerHTML !== "") {
-            //     console.log("done")
-            //     document.getElementById("form").action = "https://script.google.com/macros/s/AKfycbz0v1bUZBreSbqD8t07NQBzgZedT0VTmk5cxmrFd4dAWuDthMXk4xW7LMyLFZP5GeHunA/exec"
-            // }
-
-            if (document.getElementById("Name").value === "") {
-                console.log("no name")
-                document.getElementById("form").action = "errorPage"
-            }
-            else if (document.getElementById("email").value === "") {
-                console.log("no email")
-                document.getElementById("form").action = errorPage
-            }
-            else {
-                document.getElementById("form").action = "https://script.google.com/macros/s/AKfycbz0v1bUZBreSbqD8t07NQBzgZedT0VTmk5cxmrFd4dAWuDthMXk4xW7LMyLFZP5GeHunA/exec"
-            }
-        }
-        setInterval(() => {
-            setTimeout(check, 2000);
-        }, 1000);
     </script>
 </body>
 
